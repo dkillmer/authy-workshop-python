@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DisplayTransaction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>  
+<body>
+
+<div class="container">
+  <h2 id="status">Money Transfer {{ transfer["status"] }}</h2>
+  <h4>Transaction Details</h4>
+          
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td>Transaction ID</td>
+        <td>{{ transfer["transactionID"] }}</td>
+      </tr>
+      <tr>
+      <tr>
+        <td>Sender Email</td>
+        <td>{{ regdata["email"] }}</td>
+      </tr>
+      <tr>
+        <td>Recipient Email</td>
+        <td>{{ transfer["email"] }}</td>
+      </tr>
+      <tr>
+        <td>Account Number</td>
+        <td>{{ transfer["acct"] }}</td>
+      </tr>
+      <tr>
+        <td>US Dollar amount</td>
+        <td>{{ transfer["amt"] }}</td>
+      </tr>    
+    </tbody>
+  </table>
+  <h2>Free Kitten with every transfer!  <input type="submit" value="Back" class="btn btn-default" 
+          onclick="window.location='http://localhost:5000';" /></h2><br>
+  <img src="http://i.imgur.com/MQHYB.jpg">
+</div>
+</body>
+</html>
