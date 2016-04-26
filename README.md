@@ -29,8 +29,17 @@ This project is built using the [Flask](http://flask.pocoo.org/) web framework.
 
 1. Install the dependencies.
 
-   ```bash
-   $ ???
+   ```
+   
+   Try running PIP
+   If you don't have PIP installed, download this python script: 
+   https://bootstrap.pypa.io/get-pip.py
+   and run: sudo python get-pip.py
+   
+   next run: sudo pip install Flask
+   
+   and then: sudo pip install authy
+   
    ```
 
 1. Export the environment variable (AUTHY\_API\_KEY).
@@ -55,6 +64,13 @@ That's it!
 ### Workshop Objectives
 
 The objectives of this workshop are for you to successfully register a new Authy user in your application, send an Authy OneTouch transaction approval request to your Authy app, approve or deny the ficticious money transfer transaction and display the completed transaction.
+
+####Add a few Authy lines at the top of your Python/Flask code
+Add a few lines to import the modified authy library, read your AUTHY_API_KEY from your environment, and create an Authy Client object
+
+```
+from authy.api import AuthyApiClientauthy_api_key = os.environ['AUTHY_API_KEY']authy_api = AuthyApiClient(authy_api_key)
+```
 
 ####Register the User
 Before you can secure a user's login or enforce a second factor you need to create an Authy user. Authy requires you send an email, cellphone and country code for each Authy user. In response you get an Authy ID which you must then store with your user's profile in your own application.
@@ -93,6 +109,8 @@ Here is an example API call for checking for Approval Request Status, and one im
     while True:        onetouchStatus = authy_api.users.poll_onetouch(onetouch.uuid)        print "Authy Onetouch Approval Status: %s " % onetouchStatus.status        if onetouchStatus.status != "pending" :            break        time.sleep(1)    transfer["status"] = onetouchStatus.status
 
 ```
+## Step-by-step guide
+If you're stuck, and want to see some steps, look at the "Authy Workshop Python Step by Step Lab Guide" in the root
 
 ## Running our complete solution
 If you want to see a complete solution running, navigate to the solution folder under your project and run the server from there.
